@@ -1,0 +1,30 @@
+* Workspace
+
+
+** TODO [#B] emacs study plan [1/8]
+   - [ ] vim command line, like =:g/^$/d= =:%s/emacs/spacemacs/g=
+   - [ ] zilong videos
+   - [ ] Elisp
+   - [ ] hacks a python IDE
+   - [ ] hacks a java IDE
+   - [X] read evil menu
+   - [ ] read elisp intro in help-info
+   - [ ] read intro to elisp li xa
+
+** TODO [#B] hack emacs [0/4]
+   1. [ ] require org-protocol , find a file to place.
+   2. [ ] org directories , need rearrange.
+   3. [ ] js automatically rebuild the ctans file , introduce to python and java
+   4. [ ] org-capture-templates, customize
+
+** TODO Feb 21th 2017 [3/6]
+  - [X] install pdf reader
+  - [ ] literal programming for orgorithms study
+  - [X] zilong's video day 17
+  - [X] zilong's video day 18
+  - [ ] magit in emacs
+  - [-] booking hotel
+
+** TODO Feb 22th 2017 [0/2]
+  - [ ] CMB loan 5565
+  - [ ] little swan
