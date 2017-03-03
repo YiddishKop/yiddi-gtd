@@ -1,0 +1,84 @@
+#+TAGS: PHONE(o) COMPUTER(c) HOME(h) COMPANY(p)
+#+SEQ_TODO: NEXT(n/!) TODO(t@/!) WAITING(w@/!) SOMEDAY(s/!) | DONE(d@)
+* TODO wash the cat                                         :test:PHONE:HOME:
+  SCHEDULED: <2017-03-01 三> DEADLINE: <2017-03-04 六 08:00>
+  :LOGBOOK:
+  - State "TODO"       from "DONE"       [2017-02-28 二 19:21]
+  - State "DONE"       from "TODO"       [2017-02-27 一 16:52]
+  :END:
+* test todo
+** TODO need todo today                             :hello:COMPUTER:test:org:
+   SCHEDULED: <2017-03-01 三 +1w> DEADLINE: <2017-03-04 六 08:00>
+   :PROPERTIES:
+   :LAST_REPEAT: [2017-02-27 一 16:47]
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-02-27 一 16:47]
+   :END:
+** TODO study org mode
+   DEADLINE: <2017-03-04 六 08:00> SCHEDULED: <2017-03-01 三 08:00>
+   :LOGBOOK:
+   - State "TODO"       from "WAITING"    [2017-02-28 二 19:22]
+   - State "WAITING"    from "WAITING"    [2017-02-27 一 16:51] \\
+     for the timebeing, now ,not the good time to do this
+   :END:
+** NEXT paly the bass
+   SCHEDULED: <2017-03-03 五 .+1d>
+   :PROPERTIES:
+   :STYLE:    habit
+   :ID:       5b62d20a-6c49-44b0-8cb7-21c250ac53d9
+   :LAST_REPEAT: [2017-03-02 四 09:19]
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "NEXT"       [2017-03-02 四 09:19] \\
+     do this test 2nd time
+   - State "DONE"       from "TODO"       [2017-02-28 二 21:08] \\
+     hello world, this is a habit
+   - State "DONE"       from "TODO"       [2017-02-28 二 20:57]
+   - State "DONE"       from "TODO"       [2017-02-28 二 20:57]
+   - State "DONE"       from "TODO"       [2017-02-28 二 20:57]
+   - State "DONE"       from "STARTED"    [2017-02-28 二 20:57]
+   CLOCK: [2017-02-28 二 20:50]--[2017-02-28 二 20:57] =>  0:07
+   :END:
+
+** NEXT play the football
+   SCHEDULED: <2017-03-03 五 .+1d>
+   :PROPERTIES:
+   :STYLE:    habit
+   :LAST_REPEAT: [2017-03-02 四 09:19]
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "NEXT"       [2017-03-02 四 09:19] \\
+     do this 2nd time
+   - State "DONE"       from "TODO"       [2017-02-28 二 21:14] \\
+     play first football
+   :END:
+
+** bookmark test
+** NEXT play piano
+   SCHEDULED: <2017-03-04 六 .+2d/3d>
+   :PROPERTIES:
+   :STYLE:    habit
+   :LAST_REPEAT: [2017-03-02 四 09:19]
+   :END:
+   :LOGBOOK:
+   - State "DONE"       from "NEXT"       [2017-03-02 四 09:19] \\
+     do this 2nd time
+   - State "DONE"       from "TODO"       [2017-02-28 二 21:09] \\
+     hello piano
+   :END:
+|----------------+--------------------------+---------------+-------------------|
+| name           | address                  | city          | role              |
+|----------------+--------------------------+---------------+-------------------|
+| Barack obama   | 1600 pennsylvania avenue | washington dc | potus             |
+| Vladimir putin | kremlin                  | moscow        | russian president |
+|----------------+--------------------------+---------------+-------------------|
+
+** Skylake-Platform
+
+#+CONSTANTS: skbios=string("1.15.0")
+|       |        |     | curr | new    |        |
+| Board | System | CPU | BIOS | BIOS   | action |
+|-------+--------+-----+------+--------+--------|
+|       |        |     |      | 1.15.0 | update |
+#+TBLFM: $5=$skbios; :: $6=if("$5" == "$4", string(""), update);

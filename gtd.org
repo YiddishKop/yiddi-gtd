@@ -1,27 +1,48 @@
 * Workspace
 
 
-** TODO [#B] emacs study plan [2/9]
+** DONE [#B] emacs study plan [2/10]
+   CLOSED: [2017-02-28 二 19:20] DEADLINE: <2017-03-01 三 10:00>
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-02-28 二 19:20]
+   :END:
    - [ ] vim command line, like =:g/^$/d= =:%s/emacs/spacemacs/g=
    - [X] zilong videos
    - [ ] Elisp
    - [ ] hacks a python IDE
    - [ ] hacks a java IDE
    - [X] read evil menu
-   - [ ] read elisp intro in help-info
    - [ ] read intro to elisp li xa
    - [ ] read source code of zilong' configuration
+   - [ ] read the doc of the core pkgs of spacemacs to see the most useful function to hack emacs on my own
 
-** STARTED [#B] hack emacs [0/4]
+** STARTED [#B] read elisp intro in help-info
    :LOGBOOK:
-   CLOCK: [2017-02-22 三 13:40]
+   CLOCK: [2017-02-22 三 14:26]--[2017-02-22 三 14:51] =>  0:25
    :END:
-   1. [ ] require org-protocol , find a file to place.
-   2. [ ] org directories , need rearange.
-   3. [ ] js automatically rebuild the ctags file , introduce to python and java
-   4. [ ] org-capture-templates, customize
-
-** TODO Feb 21th 2017 [5/6]
+   - [ ] read pdf by foxit reader,
+     - blue       for compute rule
+     - yelllow    for function
+     - green      for lexical definition
+     - red        for error info
+     -
+** STARTED [#B] hack emacs [1/6]
+   :LOGBOOK:
+   - State "MEETING"    from "CANCELLED"  [2017-02-27 一 15:50]
+   - State "DONE"       from "STARTED"    [2017-02-22 三 14:25]
+   CLOCK: [2017-02-22 三 13:40]--[2017-02-22 三 14:05] =>  0:25
+   :END:
+   1. [X] org-capture-templates, customize
+   2. [ ] ERROR-INFO: Ready for another pomodoro? Error running timer ‘org-pomodoro-tick’: (void-function do-applescript)
+   3. [ ] require org-protocol , find a file to place.
+   4. [ ] org directories , need rearange.
+   5. [ ] js automatically rebuild the ctags file , introduce to python and java
+   6. [ ] find a time to see zilong'video and configuration, how to blog in emacs
+** DONE Feb 21th 2017 [5/6]
+   CLOSED: [2017-02-28 二 19:20] DEADLINE: <2017-03-01 三 10:00>
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-02-28 二 19:20]
+   :END:
   - [X] install pdf reader
   - [ ] literal programming for orgorithms study
   - [X] zilong's video day 17
@@ -29,7 +50,160 @@
   - [X] magit in emacs
   - [X] booking hotel
 
-** TODO Feb 22th 2017 [2/3]
-  - [X] CMB loan 5565
+** TODO Feb 22th 2017 [2/4]                                             :org:
+   DEADLINE: <2017-03-04 六 08:00> SCHEDULED: <2017-03-01 三 08:00>
+   :LOGBOOK:
+   - State "TODO"       from "WAITING"    [2017-02-28 二 19:22]
+   - State "WAITING"    from "TODO"       [2017-02-28 二 19:22] \\
+     ssss
+   :END:
+  - [X] ABC loan 5565
   - [X] little swan
   - [ ] handle the ID card, in MoLing Street.
+  - [ ] CMB loan 4000
+
+
+
+* Mar 2nd 2017
+  #+BEGIN: clocktable :maxlevel 4 :scope subtree
+  #+CAPTION: Clock summary at [2017-03-02 四 10:37]
+  | Headline                                  | Time   |      |      |   |
+  |-------------------------------------------+--------+------+------+---|
+  | *Total time*                              | *0:25* |      |      |   |
+  |-------------------------------------------+--------+------+------+---|
+  | Mar 2nd 2017                              | 0:25   |      |      |   |
+  | \_  TODO [0/1]                            |        | 0:25 |      |   |
+  | \_    STARTED Flipborad --- go through... |        |      | 0:25 |   |
+  #+END:
+
+** TODO [0/2]
+*** TODO Git head split from the "orgin/Head" "origin/develop"
+*** STARTED Flipborad --- go through "emacs hacks" magazine collect by me :Emacs:Flipboard:
+    DEADLINE: <2017-03-02 四 14:30> SCHEDULED: <2017-03-02 四 09:30>
+    :PROPERTIES:
+    :Effort:   4:00
+    :END:
+    :LOGBOOK:
+    CLOCK: [2017-03-02 四 10:36]--[2017-03-02 四 11:01] =>  0:25
+    CLOCK: [2017-03-02 四 09:27]--[2017-03-02 四 09:49] =>  0:22
+    CLOCK: [2017-03-02 四 09:24]--[2017-03-02 四 09:27] =>  0:03
+    :END:
+**** DONE automatically show diff before saving file              :ToArchive:
+     CLOSED: [2017-03-02 四 10:41]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2017-03-02 四 10:41]
+     :END:
+     :LINK:
+     [[http://emacs.stackexchange.com/questions/27349/automatically-show-diff-before-saving-file][automatically show diff when save]]
+     :END:
+     IMPORTANT:  buffer is a copy of buf_file in emacs.
+     It will not modify buf_file when not execute save
+
+     run "save buffer"
+
+     |
+     |
+     |/
+
+     buffer    --->saveto---> /tmp/file
+     /tmp/file --->diff--->   buf_file
+     #+BEGIN_SRC emacs-lisp
+          (defun my-diff ()
+            (let ((temp-file (make-temp-file "gpgdiff-"))
+            ;; make-temp-fle will touch a file with give prefix in OS temper directory "/tmp/gpgdiff-"
+                  (contents (buffer-string))
+                  (current-file (buffer-file-name)))
+              (with-temp-file temp-file
+                (insert contents))
+              (diff current-file temp-file))
+
+            (unless (y-or-n-p "Save buffer?")
+              (keyboard-quit)))
+
+          (add-hook 'before-save-hook 'my-diff t t)
+     #+END_SRC
+**** DONE Reading code with emacs
+     CLOSED: [2017-03-02 四 11:35]
+     :LOGBOOK:
+     - State "DONE"       from "TODO"       [2017-03-02 四 11:35]
+     :END:
+     Opening two windows with the same file is easy enough, but trying to
+     *narrow them separately doesn't work* .
+
+     To have a second narrowed region, you'll have
+     to use =clone-indirect-buffer= to open another "copy" of the file in an
+     indirect buffer. This copy has its own windows and settings. You can narrow
+     it independently, but Emacs will keep the two copies in sync (so your
+     changes won't get overwritten or anything nasty like that).
+**** STARTED use Gnu Global and ggtags in emacs
+     :LOGBOOK:
+     CLOCK: [2017-03-02 四 13:51]--[2017-03-02 四 14:16] =>  0:25
+     :END:
+
+     1. how to etags all directory?
+        1. Here’s how to create a TagFile for an entire directory tree as posted on one of the EmacsNewsgroups:
+        2. window os
+           =cd c:\source-root
+           =dir /b /s *.cpp *.h *.hpp | etags --your_options -=
+        3. *nix os
+           =find . -regex ".*\.[cChH]\(pp\)?" -print | etags -=
+     2. how to ues gnu global and gtags in emacs?
+     3. what's the difference between gtags ctags etags?
+     4.
+**** TODO how to wrap a region with sth in emacs?
+     For parens you can do M-(. For brackets/braces/quotes you could do:
+
+     (global-set-key (kbd "M-[") 'insert-pair)
+     (global-set-key (kbd "M-{") 'insert-pair)
+     (global-set-key (kbd "M-\"") 'insert-pair)
+
+     Note that if you don't have a region highlighted, it will just insert the pair
+     of whatevers and put the cursor in between them. Also handy for deleting
+     matching whatevers is
+
+     (global-set-key (kbd "M-)") 'delete-pair)
+     EDIT:
+
+     Good point in the comments about overriding backward-paragraph. You could bind
+     it to C-{, which might interfere with something in a major mode. insert-pair
+     takes the last key and does a lookup to see what pair to insert, so if you don't
+     want to bind it to something-{ you could bind to this function instead:
+
+     (defun my-insert-braces ()
+     (interactive)
+     (if (region-active-p)
+     (insert-pair 1 ?{ ?})
+     (insert "{}")
+     (backward-char)))
+     ---------------------------------------------------------------------------------------
+     I googled around and found this post by John D. Cook. He demonstrates how to
+     build a simple interactive function to get HTML/XML tags around region easily.
+     From that I modified the function to ask twice.
+
+     (defun tag-word-or-region (text-begin text-end)
+     "Surround current word or region with given text."
+     (interactive "sStart tag: \nsEnd tag: ")
+     (let (pos1 pos2 bds)
+     (if (and transient-mark-mode mark-active)
+     (progn
+     (goto-char (region-end))
+     (insert text-end)
+     (goto-char (region-beginning))
+     (insert text-begin))
+     (progn
+     (setq bds (bounds-of-thing-at-point 'symbol))
+     (goto-char (cdr bds))
+     (insert text-end)
+     (goto-char (car bds))
+     (insert text-begin)))))
+
+
+     More importantly, this function can be also used as an auxiliary tool, for
+     instance when you want to bind keys to map some specific bits of text.
+
+     (defun tag-php ()
+     (interactive)
+     (tag-word-or-region "<?php " "?>"))
+* Mar 3rd 2017
+** TODO install window of veranda
+   SCHEDULED: <2017-03-03 五 09:00>
