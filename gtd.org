@@ -207,3 +207,5 @@
 * Mar 3rd 2017
 ** TODO install window of veranda
    SCHEDULED: <2017-03-03 五 09:00>
+* TODO 搞清 xserver 和 lightdm 的启动关系
+* 循环启动桌面,简称: bootloop
